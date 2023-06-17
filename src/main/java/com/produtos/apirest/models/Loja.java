@@ -40,9 +40,6 @@ public class Loja implements Serializable {
     @NotNull
     private String logo;
 
-    @OneToMany(mappedBy = "produtos1", cascade = CascadeType.ALL)
-    private List<Produto> produtos;
-
     public long getId() {
         return id;
     }
@@ -91,13 +88,7 @@ public class Loja implements Serializable {
         this.logo = logo;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
     
 
 }
