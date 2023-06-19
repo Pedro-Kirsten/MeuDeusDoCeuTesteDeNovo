@@ -3,6 +3,7 @@ package com.produtos.apirest.models;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
@@ -41,10 +42,10 @@ public class Loja implements Serializable {
 
     @NotNull
     private String logo;
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-    private Produto produto;
+
+    @OneToMany(mappedBy = "loja", fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL)
+    private Set<Produto> produtos;
 
     public long getId() {
         return id;
@@ -94,17 +95,14 @@ public class Loja implements Serializable {
         this.logo = logo;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public Set<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutos(Set<Produto> produtos) {
+        this.produtos = produtos;
     }
-    
-    
 
 
-    
 
 }

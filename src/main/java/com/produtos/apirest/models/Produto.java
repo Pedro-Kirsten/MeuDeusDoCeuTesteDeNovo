@@ -37,6 +37,10 @@ public class Produto implements Serializable {
 
     @NotNull
     private String descricao;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id", nullable = false)
+    private Loja loja;
 
     public long getId() {
         return id;
