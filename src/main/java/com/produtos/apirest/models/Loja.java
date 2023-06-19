@@ -6,10 +6,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -39,6 +41,10 @@ public class Loja implements Serializable {
 
     @NotNull
     private String logo;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id", nullable = false)
+    private Produto produto;
 
     public long getId() {
         return id;
@@ -87,6 +93,16 @@ public class Loja implements Serializable {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+    
+    
 
 
     
