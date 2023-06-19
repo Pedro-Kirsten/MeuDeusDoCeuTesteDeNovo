@@ -43,10 +43,7 @@ public class Loja implements Serializable {
     @NotNull
     private String logo;
 
-    @OneToMany(mappedBy = "loja", fetch = FetchType.LAZY,
-    cascade = CascadeType.ALL)
-    private Set<Produto> produtos;
-
+    
     public long getId() {
         return id;
     }
@@ -95,13 +92,7 @@ public class Loja implements Serializable {
         this.logo = logo;
     }
 
-    public Set<Produto> getProdutos() {
-        return produtos;
-    }
 
-    public void setProdutos(Set<Produto> produtos) {
-        this.produtos = produtos;
-    }
 
 
 

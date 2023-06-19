@@ -38,8 +38,7 @@ public class Produto implements Serializable {
     @NotNull
     private String descricao;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
+    @ManyToOne
     private Loja loja;
 
     public long getId() {
@@ -89,6 +88,16 @@ public class Produto implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public Loja getLoja() {
+        return loja;
+    }
+
+    public void setLoja(Loja loja) {
+        this.loja = loja;
+    }
+    
+    
     
     
 
